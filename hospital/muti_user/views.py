@@ -64,7 +64,7 @@ def createpost(request):
     if request.user.is_authenticated and request.user.role == 1:
         c= request.user
         d= request.user.username
-        print(f"user  {c} and username  {d}")
+        # print(f"user  {c} and username  {d}")
         
         form = BlogPostForm()
         if request.method == 'POST':
