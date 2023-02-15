@@ -1,0 +1,49 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% if user.is_authenticated %}
+
+{% if messages %}
+<ul class="messages alert-heading ">
+    {% for message in messages %}
+    <li{% if message.tags %} class="warning"{% endif %}> <h3> {{ message | capfirst }} </h3></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+            
+        {% if user.role == 1 %}
+        
+            <!-- WHEN USER IS DOCTOR THIS CODE WILL EXECUDE -->
+
+            {% include "muti_user/includes/doctor_dashboard.html" %}
+
+        {% else %}
+        <!-- WHEN USER IS PATIENT THIS CODE WILL EXECUDE -->
+            
+            {% include "muti_user/includes/pat_dashboard.html" %}
+
+        {% endif %}
+
+
+        <h3><a href="{% url 'muti_user:logout' %}">logout</a></h3>
+
+{% else %}
+
+       <h3> <a href="{% url 'muti_user:login' %}">Login</a> </h3>
+  
+{% endif %}
+
+
+
+
+{% endblock content %}
+
+
+
+

@@ -1,0 +1,110 @@
+
+
+   <h3><a href="{% url 'muti_user:createpost' %}">CreatePost</a></h3>
+
+   <div class="row removable">
+      <div class="col-lg-6 drop-zone">
+         <h1>Dashboard of doctor</h1>
+         <hr>
+         <h1> Hello {{ user.username | capfirst }} your role is DOCTOR</h1>
+         <hr>
+         <p><strong>You are login as doctor</strong></p>
+         <li>
+             NAME : {{ user.first_name | capfirst  }}  {{ user.last_name | capfirst  }}
+         </li>
+        <li>
+           CITY:  {{ user.city | capfirst  }}
+         </li> 
+          <li>
+            EMAIL:  {{ user.email }}
+         </li>
+
+      </div>
+      <div class="col-lg-6 drop-zone">
+
+         <h1>Blog Posts Uploaded by {{ user.username | capfirst }} </h1>
+         <hr>
+
+         {% if user_post %}
+           
+                  <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
+                     <div class="card draggable" draggable="true">
+                     <div class="card-header pb-0">
+                     <div class="row">
+                     <div class="col-lg-6 col-7">
+                     <h6>Posts</h6>
+                     </div>
+                     <div class="col-lg-6 col-5 my-auto text-end">
+                     <div class="dropdown float-lg-end pe-4">
+                     <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                     <i class="fa fa-ellipsis-v text-secondary" aria-hidden="true"></i>
+                     </a>
+                     </div>
+                     </div>
+                     </div>
+                     </div>
+                     <div class="card-body px-0 pb-2">
+                     <div class="table-responsive">
+                     <table class="table align-items-center mb-0">
+                     <thead>
+                     <tr>
+                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                     <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image</th>
+                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">summary</th>
+                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">category</th>
+                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Draft</th>
+
+                     </tr>
+                     </thead>
+                     <tbody>
+                     
+               {% for p in user_post  %}
+
+                     <tr>
+                     <td>
+                     <div class="d-flex px-2 py-1">
+                     <div>
+                     </div>
+                     <div class="d-flex flex-column justify-content-center">
+                     <h6 class="mb-0 text-sm">{{p.title | capfirst }}</h6>
+                     </div>
+                     </div>
+                     </td>
+                     <td>
+                     <div class="avatar-group mt-2">
+                     <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                     <img src="{{p.image.url}}" width="40px" alt="team1">
+                     </a>
+                     </div>
+                     </td>
+                     <td class="align-middle text-center text-sm">
+                     <span class="text-xs font-weight-bold"> {{p.summary | truncatewords:5 }} </span>
+                     </td>
+                     <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{p.category | capfirst }} </span>
+                     </td>
+                     <td class="align-middle text-center text-sm">
+                        <span class="text-xs font-weight-bold"> {{p.is_draft }} </span>
+                     </td>
+                     </tr>
+                     
+               {% endfor %}
+                     
+                     
+                     </tbody>
+                     </table>
+                     </div>
+                     </div>
+                     </div>
+                     </div>
+
+         {% else %}
+               <strong>{{ user.username | capfirst }} has'not posted anything yet</strong>
+         {% endif %}
+
+      </div>
+   </div>
+
+
+
+   

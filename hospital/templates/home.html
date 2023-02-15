@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    
+
+      {% if messages %}
+      <ul class="messages alert-heading ">
+          {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags}}"{% endif %}>{{ message }}</li>
+          {% endfor %}
+      </ul>
+      {% endif %}
+
+
+    <h1>Home Page</h1>
+
+
+
+
+<div class="text-bg-info p-3">
+    <a href="{% url 'muti_user:register' %}">registration link</a>
+</div>
+
+<a href="{% url 'muti_user:dashboard' %}">dashboard</a>
+
+
+
+
+{% endblock content %}

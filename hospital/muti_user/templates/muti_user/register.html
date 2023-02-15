@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+
+
+{% block content %}
+    
+<div class="container-fluid pt-3 drop-zone"><section class="py-0 draggable" draggable="true">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 mx-auto text-center">
+          <div class="ms-2 mb-md-2">
+            <div class="icon icon-shape icon-md bg-gradient-info shadow-info mx-auto text-center mb-4">
+            </div>
+            <h3>Register form</h3>
+            <p>
+                registration
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <div class="card card-plain">
+            <form id="contact-form" method="post">
+                {% csrf_token %}
+
+              <div class="card-body">
+                <div class="row">
+                        
+                {{form.as_p}}
+
+                  </div>
+                </div>
+              </div>
+              <input type="submit" value="register">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section></div>
+
+
+
+{% endblock content %}
+
