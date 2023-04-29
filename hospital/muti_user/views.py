@@ -44,11 +44,12 @@ def dashboard(request):
     allposts = BlogPost.objects.filter(is_draft=False)
     
     user_post = BlogPost.objects.filter(author=current_user)
-    
+    alldoc = CustomUser.objects.filter(role=1).all()
     
     context ={
         "allpost" : allposts,
         "user_post" : user_post,
+        "alldoc": alldoc,
     }
     return render(request, "muti_user/dashboard.html", context)
 

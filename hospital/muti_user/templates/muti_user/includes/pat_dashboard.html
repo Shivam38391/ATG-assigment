@@ -17,7 +17,78 @@
          EMAIL:  {{ user.email }}
       </li>
 
+      <hr>
+
+      <div class="col-lg-6">
+         <h3 class="Text">All doctors: -</h3>
+         <div class="card draggable" draggable="true">
+            <div class="card-header pb-0">
+            <div class="row">
+            <div class="col-lg-6 col-7">
+            <h6>List of Doctors</h6>
+            </div>
+            <div class="col-lg-6 col-5 my-auto text-end">
+            <div class="dropdown float-lg-end pe-4">
+            <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa fa-ellipsis-v text-secondary" aria-hidden="true"></i>
+            </a>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+            <div class="table-responsive">
+            <table class="table align-items-center mb-0">
+            <thead>
+            <tr>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image</th>
+            <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">link</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            
+      {% for p in alldoc  %}
+
+            <tr>
+            <td>
+               <div class="d-flex px-2 py-1">
+                <div>
+            </div>
+            <div class="d-flex flex-column justify-content-center">
+                  <h6 class="mb-0 text-sm">{{p.username | capfirst }}</h6>
+            </div>
+            </div>
+            </td>
+            <td>
+            <div class="avatar-group mt-2">
+                     <a href="javascript:;" class="avatar avatar-xs rounded-circle" data-bs-toggle="tooltip" data-bs-placement="bottom">
+                      <img src="{{p.profile_picture.url}}" width="40px" alt="team1">
+                      </a>
+            </div>
+
+            </td>
+               <td>
+                  <div class="d-flex flex-column justify-content-center">
+                        <a href="{{ p.id.url }}">{{p.first_name}}</a>
+                  </div>
+               </td>
+            </tr>
+            
+      {% endfor %}
+            
+            
+            </tbody>
+            </table>
+            </div>
+            </div>
+            </div>
+      </div>
+
    </div>
+   
    <div class="col-lg-6 drop-zone">
 
       <h1> All Blog Posts </h1>
@@ -48,8 +119,8 @@
                   <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">summary</th>
                   <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">category</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">draft</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">author</th>
+                  <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">draft</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">author</th> -->
 
 
                   </tr>
@@ -81,14 +152,14 @@
                   <td class="align-middle text-center text-sm">
                      <span class="text-xs font-weight-bold"> {{p.category | capfirst }} </span>
                   </td>
-
+<!-- 
                   <td class="align-middle text-center text-sm">
                     <span class="text-xs font-weight-bold"> {{p.is_draft }} </span>
                  </td>
 
                  <td class="align-middle text-center text-sm">
                   <span class="text-xs font-weight-bold"> {{p.author }} </span>
-                </td>
+                </td> -->
                   </tr>
                   
             {% endfor %}
@@ -103,4 +174,6 @@
 
 
    </div>
+
+
 </div>

@@ -51,8 +51,8 @@
                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Image</th>
                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">summary</th>
-                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">category</th>
-                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Draft</th>
+                     <!-- <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">category</th>
+                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Draft</th> -->
 
                      </tr>
                      </thead>
@@ -80,12 +80,12 @@
                      <td class="align-middle text-center text-sm">
                      <span class="text-xs font-weight-bold"> {{p.summary | truncatewords:15 }} </span>
                      </td>
-                     <td class="align-middle text-center text-sm">
+                     <!-- <td class="align-middle text-center text-sm">
                         <span class="text-xs font-weight-bold"> {{p.category | capfirst }} </span>
                      </td>
                      <td class="align-middle text-center text-sm">
                         <span class="text-xs font-weight-bold"> {{p.is_draft }} </span>
-                     </td>
+                     </td> -->
                      </tr>
                      
                {% endfor %}
